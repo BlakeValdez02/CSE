@@ -90,26 +90,15 @@ for num in range(10):
 import random  # This should be on line 1
 print(random.randint(0, 1000))
 
+# Recasting
+c = '1'
+print(c == 1)  # we have a string and an int
+print(int(c) == 1)
+print(c == str(1))
 
 
+# Comparisons
 
-
-import random
-randomNumber = random.randrange(0,100)
-print("Random number created")
-guessed = False
-while guessed==False:
-    userInput = int(input("Your guess please: "))
-    if userInput==randomNumber:
-        guessed = True
-        print("Well done!")
-    elif userInput>50:
-        print("Our guess range is between 0 and 50, please try a bit lower")
-    elif userInput<0:
-        print("Our guess range is between 0 and 50, please try a bit higher")
-    elif userInput>randomNumber:
-        print("Try one more time, a bit lower")
-    elif userInput < randomNumber:
-        print("Try one more time, a bit higher")
-
-print("End of hte game")
+print(1 == 1)   # Use a double equal sign
+print(1 != 2)   # 1 is not equal to 2
+print(not False)
