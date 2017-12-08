@@ -27,3 +27,9 @@ def repeat(sentence):
 
     for x in range(3):
         print(sentence)
+
+def date(month, day, year):
+    print(str(month + "/" + str(day +"/" + str(year))))# way 1
+    print("%s/%s/%s" % (str(month, str(day, str(year))))) # way 2
+
+date(12, 8, 17)
