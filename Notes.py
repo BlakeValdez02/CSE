@@ -213,4 +213,3 @@ largest_dictionary = {
 current_node = larger_dictionary['NY']
 print(current_node['NAME'])
 print(current_node['POPULATION'])
-
