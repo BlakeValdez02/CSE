@@ -4,7 +4,7 @@ world_map = {
         'DESCRIPTION': 'You are at a construction site at a house. You can either go downstairs, east, or south.',
         'PATHS': {
             'DOWNSTAIRS': 'BASEMENT STAIRS',
-            'EAST': 'GARAGE',
+            'EAST': 'GARAGE DOORS',
             'SOUTH': 'PORCH'
         }
     },
@@ -16,7 +16,7 @@ world_map = {
             'UPSTAIRS': 'OUTSIDE'
         }
     },
-    'GARAGE': {
+    'GARAGE DOORS': {
         'NAME': 'Garage doors.',
         'DESCRIPTION': 'You are in front of the garage doors. You can either go inside or back west.',
         'PATHS': {
@@ -46,7 +46,25 @@ world_map = {
         'NAME': 'Depot',
         'DESCRIPTION': 'You are in the depot. You can either go south, or back west.',
         'PATHS': {
+            'SOUTH': 'TRAINING ROOM',
+            'WEST': 'OUTSIDE'
+        }
+    },
+    'GARAGE': {
+        'NAME': 'Garage',
+        'DESCRIPTION': 'You are inside the garage. You can either go west, or back outside. Wow is that a lambo?!',
+        'PATHS': {
+            'WEST': 'LAUNDRY ROOM',
+            'OUTSIDE': 'GARAGE DOORS'
+        }
+
+    },
+    'LAUNDRY ROOM': {
+        'NAME': 'Laundry Room',
+        'DESCRIPTION': '',
+        'PATHS': {
             '': '',
+            '': ''
         }
 
     },

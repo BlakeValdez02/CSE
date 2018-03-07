@@ -56,16 +56,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Class Notes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Class Notes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="74" column="41" lean-forward="false" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Blake Valdez - World Map OOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Blake Valdez - World Map OOP.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,11 +66,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Blake Valdez World Map.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Blake Valdez World Map.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Blake Valdez World Map.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="62" column="26" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Class Notes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Class Notes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="68" column="50" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="68" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Blake Valdez - Characters.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Blake Valdez - Characters.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -118,12 +128,13 @@
         <option value="$PROJECT_DIR$/Lucky 7's - Blake Valdez.py" />
         <option value="$PROJECT_DIR$/Lucky 7's_Blake_Valdez.py" />
         <option value="$PROJECT_DIR$/Guessgame_Blake_Valdez.py" />
-        <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/Function Notes.py" />
         <option value="$PROJECT_DIR$/Hangman_Blake_Valdez.py" />
         <option value="$PROJECT_DIR$/Notes.py" />
         <option value="$PROJECT_DIR$/Blake Valdez - World Map OOP.py" />
         <option value="$PROJECT_DIR$/Blake Valdez World Map.py" />
+        <option value="$PROJECT_DIR$/Class Notes.py" />
+        <option value="$PROJECT_DIR$/Blake Valdez - Characters.py" />
       </list>
     </option>
   </component>
@@ -190,6 +201,23 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Blake Valdez World Map">
+    <configuration name="Blake Valdez - Characters" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Blake Valdez - Characters.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="Blake Valdez - World Map OOP" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -258,23 +286,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Hangman_Blake_Valdez" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hangman_Blake_Valdez.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="Notes" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -294,19 +305,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Notes" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Hangman_Blake_Valdez" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Function Notes" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Class Notes" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Function Notes" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Class Notes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Function Notes" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Class Notes" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Hangman_Blake_Valdez" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Function Notes" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Class Notes" />
       </list>
     </recent_temporary>
   </component>
@@ -357,14 +368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Lucky 7's_Blake_Valdez.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Warmups.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -723,14 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Class Notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" column="41" lean-forward="false" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hangman_Blake_Valdez.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -750,14 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blake Valdez - World Map OOP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Warmups.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -766,10 +753,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Blake Valdez - World Map OOP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Blake Valdez World Map.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="62" column="26" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Class Notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="68" column="50" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="68" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blake Valdez - Characters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
           <folding />
         </state>
       </provider>

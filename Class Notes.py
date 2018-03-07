@@ -45,9 +45,9 @@ class car(object):
             self.running = True
             print("The car starts")
 
-    def move_foreward(self):
+    def move_foreword(self):
         if self.running:
-            print("You move foreward")
+            print("You move foreword")
         else:
             print("Nothing Happens")
 
