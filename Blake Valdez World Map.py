@@ -1,39 +1,60 @@
 world_map = {
     'OUTSIDE': {
         'NAME': 'Construction Site',
-        'DESCRIPTION': 'You are at a construction site. There is a house to the south.',
+        'DESCRIPTION': 'You are at a construction site at a house. You can either go downstairs, east, or south.',
         'PATHS': {
-            'WEST': 'BASEMENT',
+            'DOWNSTAIRS': 'BASEMENT STAIRS',
             'EAST': 'GARAGE',
             'SOUTH': 'PORCH'
         }
     },
+    'BASEMENT STAIRS': {
+        'NAME': 'Basement outside stairs',
+        'DESCRIPTION': 'You are outside the downstairs basement entrance, and you can either go east, or back upstairs.',
+        'PATHS': {
+            'EAST': 'DEPOT',
+            'UPSTAIRS': 'OUTSIDE'
+        }
+    },
+    'GARAGE': {
+        'NAME': 'Garage doors.',
+        'DESCRIPTION': 'You are in front of the garage doors. You can either go inside or back west.',
+        'PATHS': {
+            'INSIDE': 'GARAGE',
+            'WEST': 'OUTSIDE'
+        }
+    },
     'PORCH': {
         'NAME': 'Front of Porch',
-        'DESCRIPTION': 'You are on the front of the house.',
+        'DESCRIPTION': 'You are on the front porch of the house You can either go south or back north.',
         'PATHS': {
             'SOUTH': 'LOBBY',
             'NORTH': 'OUTSIDE'
         }
     },
-    'BASEMENT': {
-        'NAME': 'Basement outside stairs',
-        'DESCRIPTION': "Insert Description here",
+    'LOBBY': {
+        'NAME': 'Lobby',
+        'DESCRIPTION': 'You are in the lobby. You can either go upstairs, southeast, west, or back north.',
         'PATHS': {
-            'EAST': 'DEPOT'
+            'UPSTAIRS': 'UPPER HALLWAY',
+            'SOUTHEAST': 'KITCHEN',
+            'WEST': 'LIVING ROOM',
+            'NORTH': 'PORCH'
         }
     },
-    'LOBBY': {
-        'NAME': '',
-        'DESCRIPTION': '',
+    'DEPOT': {
+        'NAME': 'Depot',
+        'DESCRIPTION': 'You are in the depot. You can either go south, or back west.',
         'PATHS': {
-
+            '': '',
         }
-    }
+
+    },
 }
 
+
 current_node = world_map['OUTSIDE']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UPSTAIRS', 'DOWNSTAIRS']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UPSTAIRS', 'DOWNSTAIRS', 'INSIDE', 'OUTSIDE', 'SOUTHEAST']
 
 while True:
     print(current_node['NAME'])
@@ -58,4 +79,3 @@ while True:
 
 
 
-        
