@@ -14,7 +14,7 @@
 
 
 class Character(object):
-    def __init__(self, name, health, attack, death, dialogue, description, status_effect):
+    def __init__(self, name, health, attack, death, dialogue, description, status_effect, reaction):
         self.name = name
         self.hp = health
         self.attack = attack
@@ -22,3 +22,4 @@ class Character(object):
         self.dialogue = dialogue
         self.description = description
         self.status_effect = status_effect
+        self.reaction = reaction

@@ -61,13 +61,23 @@ world_map = {
     },
     'LAUNDRY ROOM': {
         'NAME': 'Laundry Room',
-        'DESCRIPTION': '',
+        'DESCRIPTION': 'You are now in the laundry room. You can either go back north to the training room, or west to'
+                       'the garage.',
         'PATHS': {
-            '': '',
-            '': ''
+            'NORTH': 'DEPOT',
+            'WEST': 'GARAGE'
         }
-
     },
+    'TRAINING ROOM': {
+        'NAME': 'Training Room',
+        'DESCRIPTION': 'You are now in the training room. There are weights around. You seem weak, maybe lift a bit?'
+                       'You can either go north to the depot, or west to the Laundry room.',
+        'PATHS': {
+            'WEST': 'LAUNDRY ROOM',
+            'NORTH': 'DEPOT'
+        }
+    },
+
 }
 
 
