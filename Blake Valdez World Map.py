@@ -10,7 +10,8 @@ world_map = {
     },
     'BASEMENT STAIRS': {
         'NAME': 'Basement outside stairs',
-        'DESCRIPTION': 'You are outside the downstairs basement entrance, and you can either go east, or back upstairs.',
+        'DESCRIPTION': 'You are outside the downstairs basement entrance, and you can either go east, or back '
+                       'upstairs.',
         'PATHS': {
             'EAST': 'DEPOT',
             'UPSTAIRS': 'OUTSIDE'
@@ -70,15 +71,30 @@ world_map = {
     },
     'TRAINING ROOM': {
         'NAME': 'Training Room',
-        'DESCRIPTION': 'You are now in the training room. There are weights around. You seem weak, maybe lift a bit?'
+        'DESCRIPTION': 'You are now in the training room. There are weights around. You seem weak, maybe lift a bit? '
                        'You can either go north to the depot, or west to the Laundry room.',
         'PATHS': {
             'WEST': 'LAUNDRY ROOM',
             'NORTH': 'DEPOT'
         }
     },
+    'UPPERHALLWAY': {
+        'NAME': 'Upstairs Hallway',
+        'DESCRIPTION': 'You are in the Hallway upstairs. You can either go north to the workshop, south to the kids'
+                       ' bedroom, southeast to the master bedroom, east to the bathroom, or back downstairs to the'
+                       ' lobby.',
+        'PATHS': {
+            'NORTH': 'WORKSHOP',
+            'SOUTH': 'KIDS BEDROOM',
+            'SOUTHEAST': 'MASTER BEDROOM',
+            'EAST': 'BATHROOM',
+            'DOWNSTAIRS': 'LOBBY'
 
-}
+        }
+    },
+
+    }
+
 
 
 current_node = world_map['OUTSIDE']

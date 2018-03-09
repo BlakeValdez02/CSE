@@ -15,11 +15,24 @@
 
 class Character(object):
     def __init__(self, name, health, attack, death, dialogue, description, status_effect, reaction):
-        self.name = name
-        self.hp = health
-        self.attack = attack
-        self.dead = death
-        self.dialogue = dialogue
+        self.name = name  # String
+        self.hp = health  # int
+        self.attack_amt = attack  # int
+        self.dead = death   # boolean
+        self.dialogue = dialogue  #
         self.description = description
         self.status_effect = status_effect
         self.reaction = reaction
+
+    def attack(self, enemy):
+        enemy.take_damage(self.attack_amt)
+
+    def take_damage(self, dmg):
+        self.hp -= dmg
+
+
+player = Character("You", 100, 25, False, None, None, None, None)
+enemy = Character("Enemy", 100, 10, False, None, None, None, None)
+
+player.attack(enemy)
+print(enemy.hp)
