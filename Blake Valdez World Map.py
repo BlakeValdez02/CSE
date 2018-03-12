@@ -92,13 +92,26 @@ world_map = {
 
         }
     },
-
+    'WORKSHOP': {
+        'NAME': 'Workshop',
+        'DESCRIPTION': 'You are in the workshop. You can only go back south to the Upstairs Hallway',
+        'PATHS': {
+            'SOUTH': 'UPPERHALLWAY'
+        }
+    },
+    'KIDS BEDROOM': {
+        'NAME': 'Kids Bedroom',
+        'DESCRIPTION': 'You are in the Kids Bedroom. You can only go back north to the Upstairs Hallway go ',
+        'PATHS': {
+            'NORTH': 'UPPER HALLWAY'
+        }
     }
+}
 
 
 
 current_node = world_map['OUTSIDE']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UPSTAIRS', 'DOWNSTAIRS', 'INSIDE', 'OUTSIDE', 'SOUTHEAST']
+directions = ['NORTH', 'NORTHWEST' 'SOUTH', 'EAST', 'WEST', 'UPSTAIRS', 'DOWNSTAIRS', 'INSIDE', 'OUTSIDE', 'SOUTHEAST']
 
 while True:
     print(current_node['NAME'])
