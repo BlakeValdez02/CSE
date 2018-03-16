@@ -45,9 +45,9 @@ world_map = {
     },
     'DEPOT': {
         'NAME': 'Depot',
-        'DESCRIPTION': 'You are in the depot. You can either go south, or back west.',
+        'DESCRIPTION': 'You are in the depot. You can either go north, or back west.',
         'PATHS': {
-            'SOUTH': 'TRAINING ROOM',
+            'NORTH': 'TRAINING ROOM',
             'WEST': 'OUTSIDE'
         }
     },
@@ -62,11 +62,11 @@ world_map = {
     },
     'LAUNDRY ROOM': {
         'NAME': 'Laundry Room',
-        'DESCRIPTION': 'You are now in the laundry room. You can either go back north to the training room, or west to'
-                       'the garage.',
+        'DESCRIPTION': 'You are now in the laundry room. You can either go back north to the training room, or east to'
+                       ' the garage.',
         'PATHS': {
-            'NORTH': 'DEPOT',
-            'WEST': 'GARAGE'
+            'NORTH': 'TRAINING ROOM',
+            'EAST': 'GARAGE'
         }
     },
     'TRAINING ROOM': {

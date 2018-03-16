@@ -10,4 +10,3 @@ class Person(object):
 class Employee(Person):
     def __init__(self, name, age, job):
         super(Employee, self).__init__(name, age)
-        
