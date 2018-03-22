@@ -27,7 +27,10 @@ class G36(Gun):
 
 class M4(Gun):
     def __init__(self, name='M4'):
-        super(M4, self).__init__(name, 'Large', '' 20)
+        super(M4, self).__init__(name, 'Large', 'The M4 carbine is extensively used by the United States Armed Forces '
+                                                'and is largely replacing the M16 rifle in United States Army and '
+                                                'United States Marine Corps combat units as the primary '
+                                                'infantry weapon', 20)
         self.fire_rate = 2
 
 
