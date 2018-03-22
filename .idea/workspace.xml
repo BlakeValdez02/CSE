@@ -18,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/Blake Valdez - Inheritance Notes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -27,8 +27,8 @@
       <file leaf-file-name="Blake Valdez - Inheritance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Blake Valdez - Inheritance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="334">
+              <caret line="29" column="49" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -37,8 +37,8 @@
       <file leaf-file-name="Blake Valdez - Characters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Blake Valdez - Characters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="283">
+              <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -111,7 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,6 +132,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -156,7 +156,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Blake Valdez World Map">
+  <component name="RunManager" selected="Python.Blake Valdez - Inheritance">
     <configuration name="Blake Valdez - Characters" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -191,6 +191,23 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="Blake Valdez - Inheritance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Blake Valdez - Inheritance.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="Blake Valdez - Programmar" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -204,23 +221,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CSE" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Blake Valdez - Programmar.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Blake Valdez - World Map OOP" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Blake Valdez - World Map OOP.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -262,18 +262,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Notes" />
       <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance Notes" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Blake Valdez - Programmar" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance Notes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Blake Valdez - Programmar" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance Notes" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez - Programmar" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Blake Valdez - World Map OOP" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Blake Valdez World Map" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Blake Valdez - Inheritance Notes" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Blake Valdez - Programmar" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Blake Valdez - Characters" />
       </list>
     </recent_temporary>
   </component>
@@ -663,26 +663,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blake Valdez - Characters.py">
+    <entry file="file://$PROJECT_DIR$/Blake Valdez - Inheritance Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blake Valdez - Inheritance Notes.py">
+    <entry file="file://$PROJECT_DIR$/Blake Valdez - Characters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="283">
+          <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Blake Valdez - Inheritance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        <state relative-caret-position="334">
+          <caret line="29" column="49" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
           <folding />
         </state>
       </provider>
