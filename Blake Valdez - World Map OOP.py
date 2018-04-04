@@ -29,3 +29,5 @@ while True:
             print("You cannot go this way")
     else:
         print("Command not recognized")
+
+
