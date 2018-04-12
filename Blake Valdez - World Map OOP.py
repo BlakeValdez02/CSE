@@ -3,9 +3,9 @@ class Room(object):
         self.name = name
         self.north = north
 
-def move(self, direction):
-    global current_node
-    current_node = globals()[getattr(self, direction)]
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
 
 
 hdum = Room()

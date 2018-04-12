@@ -61,7 +61,7 @@ class Armor(Item):
 
 
 class Character(object):
-    def __init__(self, name, health, attack, death, dialogue, description, status_effect, reaction):
+    def __init__(self, name, health, attack, death, dialogue, description, status_effect, reaction, location=None):
         self.name = name  # String
         self.hp = health  # int
         self.attack_amt = attack  # int
@@ -70,12 +70,17 @@ class Character(object):
         self.description = description
         self.status_effect = status_effect
         self.reaction = reaction
+        self.location = location
 
-    def attack(self, enemy):
-        enemy.take_damage(self.attack_amt)
+    def attack(self, target):
+        target.take_damage(self.attack_amt)
 
     def take_damage(self, dmg):
         self.hp -= dmg
+
+    def move(self, direction):
+        self.location = globals()[getattr(self.location, direction)]
+        # ####Wiebe Note: Add Char to Room so all Chars can move
 
 
 player = Character("You", 100, 25, False, None, None, None, None)
@@ -86,19 +91,51 @@ print(enemy.hp)
 
 
 class Room(object):
-    def __init__(self, name, north):
+    def __init__(self, name, description, north, south, east, west, northeast, southeast, southwest, northwest, up,
+                 down):
         self.name = name
         self.north = north
+        self.description = description
+        self.south = south
+        self.east = east
+        self.west = west
+        self.southeast = southeast
+        self.southwest = southwest
+        self.northwest = northwest
+        self.northeast = northeast
+        self.up = up
+        self.down = down
 
 
-def move(self, direction):
-    global current_node
-    current_node = globals()[getattr(self, direction)]
+outside_construction_site = Room("Outside Construction Site", "Description", None, "main_entrance", "garage_doors",
+                                 None, None, None, None, None, None, "basement_outside_stairs")
+main_entrance = Room("Front Porch House Main Entrance", "Description", 'outside_construction_site', 'lobby', None, None,
+                     None, None, None, None, None, None)
+lobby = Room("Main Lobby", "Description", "main_entrance", None, "")
+
+player.location = outside_construction_site
+directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast', 'southwest']
+short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se', 'sw']
 
 
-hdum = Room()
-room1 = Room()
-room2 = Room()
+while True:
+    print(player.location.name)
+    print(player.location.description)
+    command = input('>_')
+    if command in short_directions:
+        pos = short_directions.index(command)
+        command = directions[pos]
+    if command == 'quit':
+        quit(0)
+    elif command in directions:
+        try:
+            player.move(command)
+        except KeyError:
+            print("You cannot go this way")
+    else:
+        print("Command not recognized")
 
-current_node = hdum
-directions = ['north', 'south', 'east', 'west']
+
+
+
+
