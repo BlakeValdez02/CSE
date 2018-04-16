@@ -28,9 +28,9 @@ class G36(Gun):
 class M4(Gun):
     def __init__(self, name='M4'):
         super(M4, self).__init__(name, 'Medium', 'The M4 carbine is extensively used by the United States Armed Forces '
-                                                'and is largely replacing the M16 rifle in United States Army and '
-                                                'United States Marine Corps combat units as the primary '
-                                                'infantry weapon', 30)
+                                                 'and is largely replacing the M16 rifle in United States Army and '
+                                                 'United States Marine Corps combat units as the primary '
+                                                 'infantry weapon', 30)
         self.fire_rate = 3
 
 
@@ -47,9 +47,12 @@ class M1911(Gun):
                                                    'recoil-operated pistol chambered for the .45 ACP cartridge. It '
                                                    'served as the standard-issue sidearm for the United States Armed '
                                                    'Forces from 1911 to 1986', 20)
-
         self.fire_rate = 1
 
+
+class (Gun):
+    def __init__(self, name=''):
+        super( , self).__init__(name, '', 'description', )
 
 class Armor(Item):
     def __init__(self, name, size, description, damage_stat):
@@ -58,5 +61,3 @@ class Armor(Item):
 
     def shoot(self, target):
         target.take_damage(self.damage)
-
-

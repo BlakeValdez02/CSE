@@ -108,8 +108,6 @@ world_map = {
     }
 }
 
-
-
 current_node = world_map['OUTSIDE']
 directions = ['NORTH', 'NORTHWEST' 'SOUTH', 'EAST', 'WEST', 'UPSTAIRS', 'DOWNSTAIRS', 'INSIDE', 'OUTSIDE', 'SOUTHEAST']
 
@@ -127,12 +125,3 @@ while True:
             print("You cannot go this way")
     else:
         print("Command not recognized")
-
-
-
-
-
-
-
-
-
