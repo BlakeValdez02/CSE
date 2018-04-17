@@ -50,9 +50,18 @@ class M1911(Gun):
         self.fire_rate = 1
 
 
-class (Gun):
-    def __init__(self, name=''):
-        super( , self).__init__(name, '', 'description', )
+class DP28(Gun):
+    def __init__(self, name='DP28'):
+        super(DP28, self).__init__(name, 'Large', 'The Degtyaryov machine gun or DP-28 is a light machine gun firing '
+                                                  'the 7.62×54mmR cartridge that was primarily used by the Soviet '
+                                                  'Union starting in 1928.', 50)
+        self.fire_rate = 2
+
+
+class Armour(Item):
+    def __init__(self, name, size, description, take_damage):
+        super(Armour, self).__init__(name, size, description)
+        self.take_damage
 
 class Armor(Item):
     def __init__(self, name, size, description, damage_stat):
