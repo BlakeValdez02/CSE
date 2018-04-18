@@ -58,15 +58,30 @@ class DP28(Gun):
         self.fire_rate = 2
 
 
-class Armour(Item):
-    def __init__(self, name, size, description, take_damage):
-        super(Armour, self).__init__(name, size, description)
-        self.take_damage
-
 class Armor(Item):
-    def __init__(self, name, size, description, damage_stat):
+    def __init__(self, name, size, description, defence):
         super(Armor, self).__init__(name, size, description)
-        self.damage = damage_stat
+        self.defence = defence
 
-    def shoot(self, target):
-        target.take_damage(self.damage)
+
+class FullBodyArmor(Armor):
+    def __init__(self, name='FullBodyArmor'):
+        super(FullBodyArmor, self).__init__(name, 'Large', 'The Full Body Armor is a three piece armor set including '
+                                                           'a chestplate, leggings, and boots, providing 75 more '
+                                                           'HP. In order to get the extra full 100, you need to '
+                                                           'purchase the helmet.', 75)
+
+
+class Helmet(Armor):
+    def __init__(self, name='Helmet'):
+        super(Helmet, self).__init__(name, 'Small', 'The Helmet is an iron helmet providing 25 extra HP. If you '
+                                                    'want the extra full 100 HP, you need to purchase the Full '
+                                                    'Body Armor.', 25)
+
+
+class Consumable(Item):
+    def __init__(self, name, description, effect):
+        super(Consumable, self).__init__(name, description)
+        self.effect = effect
+
+        
