@@ -19,7 +19,7 @@ class Gun(Item):
 
 class G36(Gun):
     def __init__(self, name='G36'):
-        super(G36, self).__init__(name, 'medium', 'Classic assault rifle, designed in the early 1990s by Heckler & Koch'
+        super(G36, self).__init__(name, 'Medium', 'Classic assault rifle, designed in the early 1990s by Heckler & Koch'
                                                   ' in Germany as a replacement for the heavier 7.62mm G3 '
                                                   'battle rifle.', 20)
         self.fire_rate = 4
@@ -80,8 +80,22 @@ class Helmet(Armor):
 
 
 class Consumable(Item):
-    def __init__(self, name, description, effect):
-        super(Consumable, self).__init__(name, description)
+    def __init__(self, name, size, description, effect):
+        super(Consumable, self).__init__(name, size, description)
         self.effect = effect
 
-        
+
+class EnergyDrink(Consumable):
+    def __init__(self, name='EnergyDrink'):
+        super(EnergyDrink, self).__init__(name, 'Small', 'This is the energy drink, it is a consumable, and it is '
+                                                         'effects are as follows: Speed Boost, Slow Healing.', 'Speed'
+                                                                                                               'Boost,'
+                                                                                                               ' Slow '
+                                                                                                               'Regener'
+                                                                                                               'ation')
+
+
+class Apple(Consumable):
+    def __init__(self, name='Apple'):
+        super(Apple, self).__init__(name, 'Small', 'This is the apple, it is a consumable, and its effects are as '
+                                                   'follows: Slow Regeneration', 'Slow Regeneration')
