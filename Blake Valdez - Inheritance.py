@@ -92,10 +92,21 @@ class EnergyDrink(Consumable):
                                                                                                                'Boost,'
                                                                                                                ' Slow '
                                                                                                                'Regener'
-                                                                                                               'ation')
+                                                                                                               'ation.')
 
 
 class Apple(Consumable):
     def __init__(self, name='Apple'):
         super(Apple, self).__init__(name, 'Small', 'This is the apple, it is a consumable, and its effects are as '
-                                                   'follows: Slow Regeneration', 'Slow Regeneration')
+                                                   'follows: Slow Regeneration', 'Slow Regeneration.')
+
+
+class MedKit(Consumable):
+    def __init__(self, name='MedKit'):
+        super(MedKit, self).__init__(name, 'Medium', 'This is the Med Kit. It is a consumable, and its effects are as '
+                                                     'follows: Full HP.', 'Full Health')
+
+
+class Backpack(Item):
+    def __init__(self, name='BackPack'):
+        super(Backpack, self).__init__(name, 'Large', 'This is the Backpack')

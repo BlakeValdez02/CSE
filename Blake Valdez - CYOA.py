@@ -51,13 +51,66 @@ class M1911(Gun):
         self.fire_rate = 1
 
 
-class Armor(Item):
-    def __init__(self, name, size, description, damage_stat):
-        super(Armor, self).__init__(name, size, description)
-        self.damage = damage_stat
+class DP28(Gun):
+    def __init__(self, name='DP28'):
+        super(DP28, self).__init__(name, 'Large', 'The Degtyaryov machine gun or DP-28 is a light machine gun firing '
+                                                  'the 7.62×54mmR cartridge that was primarily used by the Soviet '
+                                                  'Union starting in 1928.', 50)
+        self.fire_rate = 2
 
-    def shoot(self, target):
-        target.take_damage(self.damage)
+
+class Armor(Item):
+    def __init__(self, name, size, description, defence):
+        super(Armor, self).__init__(name, size, description)
+        self.defence = defence
+
+
+class FullBodyArmor(Armor):
+    def __init__(self, name='FullBodyArmor'):
+        super(FullBodyArmor, self).__init__(name, 'Large', 'The Full Body Armor is a three piece armor set including '
+                                                           'a chestplate, leggings, and boots, providing 75 more '
+                                                           'HP. In order to get the extra full 100, you need to '
+                                                           'find the helmet.', 75)
+
+
+class Helmet(Armor):
+    def __init__(self, name='Helmet'):
+        super(Helmet, self).__init__(name, 'Small', 'The Helmet is an iron helmet providing 25 extra HP. If you '
+                                                    'want the extra full 100 HP, you need to find the Full '
+                                                    'Body Armor.', 25)
+
+
+class Consumable(Item):
+    def __init__(self, name, size, description, effect):
+        super(Consumable, self).__init__(name, size, description)
+        self.effect = effect
+
+
+class EnergyDrink(Consumable):
+    def __init__(self, name='EnergyDrink'):
+        super(EnergyDrink, self).__init__(name, 'Small', 'This is the energy drink, it is a consumable, and it is '
+                                                         'effects are as follows: Speed Boost, Slow Healing.', 'Speed'
+                                                                                                               'Boost,'
+                                                                                                               ' Slow '
+                                                                                                               'Regener'
+                                                                                                               'ation.')
+
+
+class Apple(Consumable):
+    def __init__(self, name='Apple'):
+        super(Apple, self).__init__(name, 'Small', 'This is the apple, it is a consumable, and its effects are as '
+                                                   'follows: Slow Regeneration', 'Slow Regeneration.')
+
+
+class MedKit(Consumable):
+    def __init__(self, name='MedKit'):
+        super(MedKit, self).__init__(name, 'Medium', 'This is the Med Kit. It is a consumable, and its effects are as '
+                                                     'follows: Full HP.', 'Full Health')
+
+
+class Backpack(Item):
+    def __init__(self, name='BackPack'):
+        super(Backpack, self).__init__(name, 'Large', 'This is the Backpack, It is your extra space.')
 
 
 class Character(object):
@@ -92,7 +145,7 @@ print(enemy.hp)
 
 class Room(object):
     def __init__(self, name, description, north, south, east, west, northeast, southeast, southwest, northwest, up,
-                 down):
+                 down, inside, outside, item=None):
         self.name = name
         self.north = north
         self.description = description
@@ -105,22 +158,87 @@ class Room(object):
         self.northeast = northeast
         self.up = up
         self.down = down
+        self.inside = inside
+        self.outside = outside
+        self.item = item
+
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
 
 
-outside_construction_site = Room("Outside Construction Site", "Description", None, "main_entrance", "garage_doors",
-                                 None, None, None, None, None, None, "basement_outside_stairs")
-main_entrance = Room("Front Porch House Main Entrance", "Description", 'outside_construction_site', 'lobby', None, None,
-                     None, None, None, None, None, None)
-lobby = Room("Main Lobby", "Description", "main_entrance", None, "")
+g36 = G36()
+m4 = M4()
+pump_shotgun = PumpShotgun()
+m1911 = M1911()
+dp28 = DP28()
+full_body_armour = FullBodyArmor()
+helmet = Helmet()
+energy_drink = EnergyDrink()
+apple = Apple()
+med_kit = MedKit()
+backpack = Backpack()
 
-player.location = outside_construction_site
-directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast', 'southwest']
-short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se', 'sw']
+outside_construction_site = Room("Outside Construction Site", "You are outside "
+                                                              "at a "
+                                                              "construction "
+                                                              "site", None, "main_entrance", "outside_garage_doors",
+                                 None, None, None, None, None, None, "basement_outside_stairs", None, None,)
+main_entrance = Room("Front Porch House Main Entrance", "You are at "
+                                                        "the front "
+                                                        "entrance of "
+                                                        "a house", 'outside_construction_site', 'lobby', None, None,
+                     None, None, None, None, None, None, None, None)
+lobby = Room("Main Lobby", "You are in the "
+                           "lobby", "main_entrance", None, None, "living_room", None, "kitchen", None, None,
+             "lobby_stairs", None, None, None)
+living_room = Room("Living Room", "You are in the living "
+                                  "room", None, None, "lobby", None, None, None, None, None, None, None, None, None)
+kitchen = Room("Kitchen", "You are in "
+                          "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
+               None,)
+dining_room = Room("Dining Room", "You are in "
+                                  "the dining "
+                                  "room", None, None, None, "kitchen", None, None, None, None, None, None, None,
+                   None,)
+lobby_stairs = Room("Lobby Stairs", "You are upstairs", None, "upper_hallway", None, None, None, None, None, None, None,
+                    "Lobby", None, None)
+upper_hallway = Room("Upstairs Hallway", "You are in the upper "
+                                         "hallway", "workshop", "kids_bedroom", "bathroom", None, None,
+                     "master_bedroom", None, None, None, None, None, None)
+workshop = Room("Workshop", "You are in "
+                            "the workshop", None, "upper_hallway", None, None, None, None, None, None, None, None, None,
+                None)
+kids_bedroom = Room("Kids Bedroom", "You are in the "
+                                    "kids bedroom", "upper_hallway", None, None, None, None, None, None, None, None,
+                    None, None, None)
+bathroom = Room("Bathroom", "You are in "
+                            "the bathroom", None, "master_bedroom", None, "upperhallway", None, None, None, None, None,
+                None, None, None)
+master_bedroom = Room("Master Bedroom", "You are in "
+                                        "the master "
+                                        "bedroom", "bathroom", None, None, None, None, None, None, "upper_hallway",
+                      None, None, None, None)
+outside_garage_doors = Room("Garage Doors (outside)", "You are outside "
+                                                      "in front of an "
+                                                      "open garage", None, None, None, "outside_construction_site",
+                            None, None, None, None, None, None, "garage", None)
+garage = Room("Garage", "You are in the "
+                        "garage", None, None, None, "laundry_room", None, None, None, None, None, None, None,
+              "outside_garage_doors")
+laundry_room = ("Laundry Room", "You are in the"
+                                "laundry room", "training_room", None, "garage", None, None, None, None, None, None,
+                None, None, None)
+
+current_node = outside_construction_site
+directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast', 'southwest',
+              'inside', 'outside']
+short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se', 'sw', 'in', 'out']
 
 
 while True:
-    print(player.location.name)
-    print(player.location.description)
+    print(current_node.name)
+    print(current_node.description)
     command = input('>_')
     if command in short_directions:
         pos = short_directions.index(command)
@@ -129,13 +247,8 @@ while True:
         quit(0)
     elif command in directions:
         try:
-            player.move(command)
+            current_node.move(command)
         except KeyError:
             print("You cannot go this way")
     else:
         print("Command not recognized")
-
-
-
-
-
