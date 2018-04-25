@@ -3,10 +3,16 @@ class Person(object):
         self.name = name
         self.age = age
 
-    def work(self):
-        print("%s goes to work" % self.name)
-
 
 class Employee(Person):
-    def __init__(self, name, age, job):
+    def __init__(self, name, age):
         super(Employee, self).__init__(name, age)
+
+
+class Programmer(Employee):
+    def __init__(self, name, age):
+        super(Programmer, self).__init__(name, age)
+
+
+def work(self):
+    print("%s goes to work" % self.name)

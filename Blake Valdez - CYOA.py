@@ -145,7 +145,7 @@ print(enemy.hp)
 
 class Room(object):
     def __init__(self, name, description, north, south, east, west, northeast, southeast, southwest, northwest, up,
-                 down, inside, outside, item=None):
+                 down, inside, outside, item=None, enemy=None):
         self.name = name
         self.north = north
         self.description = description
@@ -161,6 +161,7 @@ class Room(object):
         self.inside = inside
         self.outside = outside
         self.item = item
+        self.enemy = enemy(+1)
 
     def move(self, direction):
         global current_node
@@ -183,24 +184,25 @@ outside_construction_site = Room("Outside Construction Site", "You are outside "
                                                               "at a "
                                                               "construction "
                                                               "site", None, "main_entrance", "outside_garage_doors",
-                                 None, None, None, None, None, None, "basement_outside_stairs", None, None,)
+                                 None, None, None, None, None, None, "basement_outside_stairs", None, None, backpack)
 main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "the front "
                                                         "entrance of "
                                                         "a house", 'outside_construction_site', 'lobby', None, None,
-                     None, None, None, None, None, None, None, None)
+                     None, None, None, None, None, None, None, None, energy_drink)
 lobby = Room("Main Lobby", "You are in the "
                            "lobby", "main_entrance", None, None, "living_room", None, "kitchen", None, None,
-             "lobby_stairs", None, None, None)
+             "lobby_stairs", None, None, None, apple)
 living_room = Room("Living Room", "You are in the living "
-                                  "room", None, None, "lobby", None, None, None, None, None, None, None, None, None)
+                                  "room", None, None, "lobby", None, None, None, None, None, None, None, None, None,
+                   m1911)
 kitchen = Room("Kitchen", "You are in "
                           "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
-               None,)
+               None, helmet)
 dining_room = Room("Dining Room", "You are in "
                                   "the dining "
                                   "room", None, None, None, "kitchen", None, None, None, None, None, None, None,
-                   None,)
+                   None, )
 lobby_stairs = Room("Lobby Stairs", "You are upstairs", None, "upper_hallway", None, None, None, None, None, None, None,
                     "Lobby", None, None)
 upper_hallway = Room("Upstairs Hallway", "You are in the upper "
