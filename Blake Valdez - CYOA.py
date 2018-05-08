@@ -211,49 +211,69 @@ outside_construction_site = Room("Outside Construction Site", "You are outside "
 main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "the front "
                                                         "entrance of "
-                                                        "a house. ", 'outside_construction_site', 'lobby', None, None,
-                     None, None, None, None, None, None, None, None, energy_drink, 1)
+                                                        "a house. "
+                                                        "There is an"
+                                                        " energy "
+                                                        "drink here."
+                                                        " You can "
+                                                        "wither go "
+                                                        "north to "
+                                                        "the "
+                                                        "constructio"
+                                                        "n site or "
+                                                        "south to "
+                                                        "the lobby.", 'outside_construction_site', 'lobby', None, None,
+                     None, None, None, None, None, None, None, None, energy_drink, 0)
 
 lobby = Room("Main Lobby", "You are in the "
-                           "lobby", "main_entrance", None, None, "living_room", None, "kitchen", None, None,
-             "lobby_stairs", None, None, None, apple, 2)
+                           "lobby. There is an apple here. You can "
+                           "either go north "
+                           "to the main "
+                           "entrance, west to "
+                           "the living room "
+                           "southeast to the "
+                           "kitchen, or up "
+                           "to the lobby "
+                           "stairs.", "main_entrance", None, None, "living_room", None, "kitchen", None, None,
+             "lobby_stairs", None, None, None, apple, 0)
 
 living_room = Room("Living Room", "You are in the living "
-                                  "room", None, None, "lobby", None, None, None, None, None, None, None, None, None,
-                   m1911)
+                                  "room. There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911.",
+                                   None, None, "lobby", None, None, None, None, None, None, None, None, None,
+                   m1911, 1)
 
 kitchen = Room("Kitchen", "You are in "
                           "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
-               None, helmet)
+               None, helmet, 0)
 
 dining_room = Room("Dining Room", "You are in "
                                   "the dining "
                                   "room", None, None, None, "kitchen", None, None, None, None, None, None, None,
-                   None, None, 1)
+                   None, med_kit, 0)
 
 lobby_stairs = Room("Lobby Stairs", "You are upstairs", None, "upper_hallway", None, None, None, None, None, None, None,
-                    "Lobby", None, None)
+                    "Lobby", None, None, None, 2)
 
 upper_hallway = Room("Upstairs Hallway", "You are in the upper "
                                          "hallway", "workshop", "kids_bedroom", "bathroom", None, None,
-                     "master_bedroom", None, None, None, None, None, None)
+                     "master_bedroom", None, None, None, None, None, None, pump_shotgun, 0)
 
 workshop = Room("Workshop", "You are in "
                             "the workshop", None, "upper_hallway", None, None, None, None, None, None, None, None, None,
-                None)
+                None, None, 0)
 
 kids_bedroom = Room("Kids Bedroom", "You are in the "
                                     "kids bedroom", "upper_hallway", None, None, None, None, None, None, None, None,
-                    None, None, None)
+                    None, None, None, full_body_armour, 3)
 
 bathroom = Room("Bathroom", "You are in "
                             "the bathroom", None, "master_bedroom", None, "upperhallway", None, None, None, None, None,
-                None, None, None)
+                None, None, None, None, 0)
 
 master_bedroom = Room("Master Bedroom", "You are in "
                                         "the master "
                                         "bedroom", "bathroom", None, None, None, None, None, None, "upper_hallway",
-                      None, None, None, None)
+                      None, None, None, None, None, 0)
 
 outside_garage_doors = Room("Garage Doors (outside)", "You are outside "
                                                       "in front of an "
@@ -327,3 +347,7 @@ while True:
             print("You cannot go this way")
     else:
         print("Command not recognized")
+    if command == 'stats M1911':
+        print("The M1911 is a single-action, semi-automatic, magazine-fed, recoil-operated pistol chambered for the "
+              ".45 ACP cartridge. It served as the standard-issue sidearm for the United States Armed Forces from 1911 "
+              "to 1986. It does 20 Damage, with a fire rate of 1")

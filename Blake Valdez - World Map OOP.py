@@ -20,11 +20,9 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
-# Need 15 Rooms.
-
 
 outside_construction_site = Room("Outside Construction Site", "You are outside "
-                                                              "at a "
+
                                                               "construction "
                                                               "site", None, "main_entrance", "outside_garage_doors",
                                  None, None, None, None, None, None, "basement_outside_stairs", None, None)
