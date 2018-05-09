@@ -26,7 +26,7 @@ class G36(Gun):
     def __init__(self, name='G36'):
         super(G36, self).__init__(name, 'medium', 'Classic assault rifle, designed in the early 1990s by Heckler & Koch'
                                                   ' in Germany as a replacement for the heavier 7.62mm G3 '
-                                                  'battle rifle.', 20)
+                                                  'battle rifle, with 20 damage, and a fire rate of 4.', 20)
         self.fire_rate = 4
 
 
@@ -35,14 +35,15 @@ class M4(Gun):
         super(M4, self).__init__(name, 'Medium', 'The M4 carbine is extensively used by the United States Armed Forces '
                                                  'and is largely replacing the M16 rifle in United States Army and '
                                                  'United States Marine Corps combat units as the primary '
-                                                 'infantry weapon', 30)
+                                                 'infantry weapon, with a 30 damage, and a fire rate of 3', 30)
         self.fire_rate = 3
 
 
 class PumpShotgun(Gun):
     def __init__(self, name='Pump Shotgun'):
         super(PumpShotgun, self).__init__(name, 'Large', 'Mossberg 500 .410 Bore Special Purpose Cruiser Pump Action '
-                                                         'Shotgun 18-1/2" Barrel 6 Rounds Synthetic Stock', 50)
+                                                         'Shotgun 18-1/2" Barrel 6 Rounds Synthetic Stock, with a '
+                                                         'damage of 50 and a fire rate of 1.', 50)
         self.fire_rate = 1
 
 
@@ -51,7 +52,8 @@ class M1911(Gun):
         super(M1911, self).__init__(name, 'Small', 'The M1911 is a single-action, semi-automatic, magazine-fed, '
                                                    'recoil-operated pistol chambered for the .45 ACP cartridge. It '
                                                    'served as the standard-issue sidearm for the United States Armed '
-                                                   'Forces from 1911 to 1986', 20)
+                                                   'Forces from 1911 to 1986, with a damage of 20, and a fire '
+                                                   'rate of 1.', 20)
 
         self.fire_rate = 1
 
@@ -60,7 +62,8 @@ class DP28(Gun):
     def __init__(self, name='DP28'):
         super(DP28, self).__init__(name, 'Large', 'The Degtyaryov machine gun or DP-28 is a light machine gun firing '
                                                   'the 7.62×54mmR cartridge that was primarily used by the Soviet '
-                                                  'Union starting in 1928.', 50)
+                                                  'Union starting in 1928, with a damage of 50 and a fire rate '
+                                                  'of 2', 50)
         self.fire_rate = 2
 
 
@@ -362,9 +365,34 @@ while True:
         except KeyError:
             print("You cannot go this way")
     elif command == 'stats M1911':
-        print("The M1911 is a single-action, semi-automatic, magazine-fed, recoil-operated pistol chambered for the "
-              ".45 ACP cartridge. It served as the standard-issue sidearm for the United States Armed Forces from 1911 "
-              "to 1986. It does 20 Damage, with a fire rate of 1")
+        print('The M1911 is a single-action, semi-automatic, magazine-fed, '
+              'recoil-operated pistol chambered for the .45 ACP cartridge. It '
+              'served as the standard-issue sidearm for the United States Armed '
+              'Forces from 1911 to 1986, with a damage of 20, and a fire '
+              'rate of 1.')
+
+    elif command == 'stats DP28':
+        print('The Degtyaryov machine gun or DP-28 is a light machine gun firing '
+              'the 7.62×54mmR cartridge that was primarily used by the Soviet '
+              'Union starting in 1928, with a damage of 50 and a fire rate '
+              'of 2',)
+
+    elif command == 'stats pumpshotgun':
+        print('Mossberg 500 .410 Bore Special Purpose Cruiser Pump Action '
+              'Shotgun 18-1/2" Barrel 6 Rounds Synthetic Stock, with a '
+              'damage of 50 and a fire rate of 1.')
+
+    elif command == 'stats G36':
+        print('Classic assault rifle, designed in the early 1990s by Heckler & Koch'
+              ' in Germany as a replacement for the heavier 7.62mm G3 '
+              'battle rifle, with 20 damage, and a fire rate of 4.')
+
+    elif command == 'stats M4':
+        print('The M4 carbine is extensively used by the United States Armed Forces '
+              'and is largely replacing the M16 rifle in United States Army and '
+              'United States Marine Corps combat units as the primary '
+              'infantry weapon, with a 30 damage, and a fire rate of 3')
+
     elif current_node.item is not None and 'take' in command:
         player.inventory.append(current_node.item)
         current_node.item = None
