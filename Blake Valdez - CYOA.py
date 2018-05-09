@@ -73,15 +73,15 @@ class Armor(Item):
 class FullBodyArmor(Armor):
     def __init__(self, name='FullBodyArmor'):
         super(FullBodyArmor, self).__init__(name, 'Large', 'The Full Body Armor is a three piece armor set including '
-                                                           'a chestplate, leggings, and boots, providing 75 more '
-                                                           'HP. In order to get the extra full 100, you need to '
+                                                           'a chestplate, leggings, and boots, providing 75 Shield. '
+                                                           'In order to get the extra full 100, you need to '
                                                            'find the helmet.', 75)
 
 
 class Helmet(Armor):
     def __init__(self, name='Helmet'):
         super(Helmet, self).__init__(name, 'Small', 'The Helmet is an iron helmet providing 25 extra HP. If you '
-                                                    'want the extra full 100 HP, you need to find the Full '
+                                                    'want the extra full 100 Shield, you need to find the Full '
                                                     'Body Armor.', 25)
 
 
@@ -94,23 +94,19 @@ class Consumable(Item):
 class EnergyDrink(Consumable):
     def __init__(self, name='EnergyDrink'):
         super(EnergyDrink, self).__init__(name, 'Small', 'This is the energy drink, it is a consumable, and it is '
-                                                         'effects are as follows: Speed Boost, Slow Healing.', 'Speed'
-                                                                                                               'Boost,'
-                                                                                                               ' Slow '
-                                                                                                               'Regener'
-                                                                                                               'ation.')
+                                                         'effects are as follows: +50 HP', 50)
 
 
 class Apple(Consumable):
     def __init__(self, name='Apple'):
         super(Apple, self).__init__(name, 'Small', 'This is the apple, it is a consumable, and its effects are as '
-                                                   'follows: Slow Regeneration', 'Slow Regeneration.')
+                                                   'follows: Slow Regeneration', 25)
 
 
 class MedKit(Consumable):
     def __init__(self, name='MedKit'):
         super(MedKit, self).__init__(name, 'Medium', 'This is the Med Kit. It is a consumable, and its effects are as '
-                                                     'follows: Full HP.', 'Full Health')
+                                                     'follows: Full HP.', 100)
 
 
 class Backpack(Item):
@@ -129,16 +125,36 @@ class Character(object):
         self.status_effect = status_effect
         self.reaction = reaction
         self.location = location
+        self.inventory = []
+        self.shield = 0
 
     def attack(self, target):
         target.take_damage(self.attack_amt)
 
     def take_damage(self, dmg):
-        self.hp -= dmg
+        damage_taken = dmg - self.shield
+        if damage_taken < 0:
+            damage_taken = 0
+        self.hp -= damage_taken
 
     def move(self, direction):
         self.location = globals()[getattr(self.location, direction)]
         # ####Wiebe Note: Add Char to Room so all Chars can move
+
+    def equip(self, item):
+        if isinstance(item, Gun):
+            self.attack_amt = item.damage
+            print("You have equipped the %s" % item.name)
+        elif isinstance(item, Armor):
+            self.shield = item.defence
+            print("You have equipped the %s" % item.name)
+
+    def use(self, item):
+        if isinstance(item, Consumable):
+            self.hp += item.effect
+            if self.hp > 100:
+                self.hp = 100
+            print("You use the %s" % item.name)
 
 
 player = Character("You", 100, 25, False, None, None, None, None)
@@ -239,7 +255,7 @@ lobby = Room("Main Lobby", "You are in the "
 
 living_room = Room("Living Room", "You are in the living "
                                   "room. There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911.",
-                                   None, None, "lobby", None, None, None, None, None, None, None, None, None,
+                                  None, None, "lobby", None, None, None, None, None, None, None, None, None,
                    m1911, 1)
 
 kitchen = Room("Kitchen", "You are in "
@@ -345,9 +361,29 @@ while True:
             current_node.move(command)
         except KeyError:
             print("You cannot go this way")
-    else:
-        print("Command not recognized")
-    if command == 'stats M1911':
+    elif command == 'stats M1911':
         print("The M1911 is a single-action, semi-automatic, magazine-fed, recoil-operated pistol chambered for the "
               ".45 ACP cartridge. It served as the standard-issue sidearm for the United States Armed Forces from 1911 "
               "to 1986. It does 20 Damage, with a fire rate of 1")
+    elif current_node.item is not None and 'take' in command:
+        player.inventory.append(current_node.item)
+        current_node.item = None
+        print("Taken.")
+    elif 'equip ' in command:
+        item_requested = command[6:]
+        found = False
+        for item in player.inventory:
+            if item.name.lower() == item_requested.lower():
+                found = True
+                player.equip(item)
+        if not found:
+            print("You don't have that")
+    elif 'use ' in command:
+        item_requested = command[4]
+        found = False
+        for item in player.inventory:
+            if item.name.lower() == item_requested.lower():
+                found = True
+                player.use(item)
+    else:
+        print("Command not recognized")
