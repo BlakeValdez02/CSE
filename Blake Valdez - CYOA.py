@@ -235,7 +235,7 @@ main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         " energy "
                                                         "drink here."
                                                         " You can "
-                                                        "wither go "
+                                                        "either go "
                                                         "north to "
                                                         "the "
                                                         "constructio"
@@ -397,6 +397,8 @@ while True:
         player.inventory.append(current_node.item)
         current_node.item = None
         print("Taken.")
+    elif 'Take' in command:
+        print("%d" % current_node)
     elif 'equip ' in command:
         item_requested = command[6:]
         found = False
