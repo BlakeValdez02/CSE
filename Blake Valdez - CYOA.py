@@ -166,7 +166,7 @@ enemy = Character("Enemy", 100, 10, False, None, None, None, None)
 
 class Room(object):
     def __init__(self, name, description, north, south, east, west, northeast, southeast, southwest, northwest, up,
-                 down, inside, outside, item=None, enemy=0):
+                 down, inside, outside, item=None, enemy=0, item_description=""):
         self.name = name
         self.north = north
         self.description = description
@@ -183,6 +183,7 @@ class Room(object):
         self.outside = outside
         self.item = item
         self.enemy = enemy
+        self.item_description = item_description
 
     def move(self, direction):
         global current_node
@@ -201,39 +202,16 @@ apple = Apple()
 med_kit = MedKit()
 backpack = Backpack()
 
-outside_construction_site = Room("Outside Construction Site", "You are outside "
-                                                              "at a "
-                                                              "construction "
-                                                              "site. "
-                                                              "There is"
-                                                              " a "
-                                                              "backpack"
-                                                              " here. "
-                                                              "You can "
-                                                              "either "
-                                                              "go south"
-                                                              " to the "
-                                                              "main "
-                                                              "entrance"
-                                                              ", east "
-                                                              "to the "
-                                                              "outside"
-                                                              " garage"
-                                                              " doors, "
-                                                              "or down "
-                                                              "to the "
-                                                              "basement"
-                                                              " outside"
-                                                              " stairs.", None, "main_entrance", "outside_garage_doors",
-                                 None, None, None, None, None, None, "basement_outside_stairs", None, None, backpack)
+outside_construction_site = Room("Outside Construction Site", "You are outside at a construction site. "
+                                 "You can either go south to the main entrance, east to the outside garage doors, or "
+                                 "down to the basement outside stairs.", None, "main_entrance", "outside_garage_doors",
+                                 None, None, None, None, None, None, "basement_outside_stairs", None, None, backpack, 0,
+                                 "There is a backpack here. ")
 
 main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "the front "
                                                         "entrance of "
                                                         "a house. "
-                                                        "There is an"
-                                                        " energy "
-                                                        "drink here."
                                                         " You can "
                                                         "either go "
                                                         "north to "
@@ -242,10 +220,10 @@ main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "n site or "
                                                         "south to "
                                                         "the lobby.", 'outside_construction_site', 'lobby', None, None,
-                     None, None, None, None, None, None, None, None, energy_drink, 0)
+                     None, None, None, None, None, None, None, None, energy_drink, 0, "There is an energy drink here. ")
 
 lobby = Room("Main Lobby", "You are in the "
-                           "lobby. There is an apple here. You can "
+                           "lobby. You can "
                            "either go north "
                            "to the main "
                            "entrance, west to "
@@ -254,16 +232,16 @@ lobby = Room("Main Lobby", "You are in the "
                            "kitchen, or up "
                            "to the lobby "
                            "stairs.", "main_entrance", None, None, "living_room", None, "kitchen", None, None,
-             "lobby_stairs", None, None, None, apple, 0)
+             "lobby_stairs", None, None, None, apple, 0, "There is an apple here.")
 
 living_room = Room("Living Room", "You are in the living "
-                                  "room. There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911.",
+                                  "room.",
                                   None, None, "lobby", None, None, None, None, None, None, None, None, None,
-                   m1911, 1)
+                   m1911, 0, "There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911")
 
 kitchen = Room("Kitchen", "You are in "
                           "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
-               None, helmet, 0)
+               None, helmet, 1)
 
 dining_room = Room("Dining Room", "You are in "
                                   "the dining "
@@ -349,6 +327,7 @@ health_modifier = 0
 while True:
     print(current_node.name)
     print(current_node.description)
+    print(current_node.item_description)
     while current_node.enemy > 0:
         fight(health_modifier)
         health_modifier += 25
@@ -392,11 +371,56 @@ while True:
               'and is largely replacing the M16 rifle in United States Army and '
               'United States Marine Corps combat units as the primary '
               'infantry weapon, with a 30 damage, and a fire rate of 3')
+    elif command == 'kill self':
+        print("Suicide is not the answer. Seriously 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 ")
 
     elif current_node.item is not None and 'take' in command:
         player.inventory.append(current_node.item)
         current_node.item = None
         print("Taken.")
+        current_node.item_description = ""
     elif 'Take' in command:
         print("%d" % current_node)
     elif 'equip ' in command:
