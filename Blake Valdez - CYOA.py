@@ -235,51 +235,59 @@ lobby = Room("Main Lobby", "You are in the "
              "lobby_stairs", None, None, None, apple, 0, "There is an apple here.")
 
 living_room = Room("Living Room", "You are in the living "
-                                  "room.",
+                                  "room. You can only go east to the lobby.",
                                   None, None, "lobby", None, None, None, None, None, None, None, None, None,
-                   m1911, 0, "There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911")
+                   m1911, 0, "There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911. ")
 
 kitchen = Room("Kitchen", "You are in "
                           "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
-               None, helmet, 1)
+               None, helmet, 1, "There is a helmet here. ")
 
 dining_room = Room("Dining Room", "You are in "
                                   "the dining "
                                   "room", None, None, None, "kitchen", None, None, None, None, None, None, None,
-                   None, med_kit, 0)
+                   None, med_kit, 0, "There is a Med Kit here. ")
 
 lobby_stairs = Room("Lobby Stairs", "You are upstairs", None, "upper_hallway", None, None, None, None, None, None, None,
                     "Lobby", None, None, None, 2)
 
 upper_hallway = Room("Upstairs Hallway", "You are in the upper "
                                          "hallway", "workshop", "kids_bedroom", "bathroom", None, None,
-                     "master_bedroom", None, None, None, None, None, None, pump_shotgun, 0)
+                     "master_bedroom", None, None, None, None, None, None, pump_shotgun, 0, "There is a pump shotgun "
+                                                                                            "here. Type 'stats pump "
+                                                                                            "shotgun' to show the stats"
+                                                                                            " of the pump shotgun.")
 
 workshop = Room("Workshop", "You are in "
                             "the workshop", None, "upper_hallway", None, None, None, None, None, None, None, None, None,
-                None, None, 0)
+                None, None, 2)
 
 kids_bedroom = Room("Kids Bedroom", "You are in the "
                                     "kids bedroom", "upper_hallway", None, None, None, None, None, None, None, None,
-                    None, None, None, full_body_armour, 3)
+                    None, None, None, full_body_armour, 0, "There is Full Body Armour here. ")
 
 bathroom = Room("Bathroom", "You are in "
                             "the bathroom", None, "master_bedroom", None, "upperhallway", None, None, None, None, None,
-                None, None, None, None, 0)
+                None, None, None, None, 3)
 
 master_bedroom = Room("Master Bedroom", "You are in "
                                         "the master "
                                         "bedroom", "bathroom", None, None, None, None, None, None, "upper_hallway",
-                      None, None, None, None, None, 0)
+                      None, None, None, None, DP28, 0, "There is a DP-28 Light Machine Gun here. Type 'stats DP28' to "
+                                                       "show the stats of the DP28 Light Machine Gun.")
 
 outside_garage_doors = Room("Garage Doors (outside)", "You are outside "
                                                       "in front of an "
                                                       "open garage", None, None, None, "outside_construction_site",
-                            None, None, None, None, None, None, "garage", None)
+                            None, None, None, None, None, None, "garage", None, M4, 0, "There is an M4 Assault Rifle "
+                                                                                       "here. Type 'stats M4' to "
+                                                                                       "show stats of the M4 Assault "
+                                                                                       "Rifle. ")
 
 garage = Room("Garage", "You are in the "
                         "garage", None, None, None, "laundry_room", None, None, None, None, None, None, None,
-              "outside_garage_doors")
+              "outside_garage_doors", G36, 0, "There is a G36 Assault Rifle here. Type 'stats G36' to show the stats "
+                                              "of the G36 Assault Rifle.")
 
 laundry_room = ("Laundry Room", "You are in the"
                                 "laundry room", "training_room", None, "garage", None, None, None, None, None, None,
@@ -293,7 +301,7 @@ def fight(modifier):
     print()
     print("A Wild Enemy appears!!!")
     while current_enemy.hp > 0 and player.hp > 0:
-        options = ["Attack", "Nothing", "Drink energy Drink"]
+        options = ["Attack", "Nothing", "Drink energy Drink", "Eat Apple"]
         for num, action in enumerate(options):
             print(str(num + 1) + ": " + action)
         try:
