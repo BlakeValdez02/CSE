@@ -289,9 +289,15 @@ garage = Room("Garage", "You are in the "
               "outside_garage_doors", G36, 0, "There is a G36 Assault Rifle here. Type 'stats G36' to show the stats "
                                               "of the G36 Assault Rifle.")
 
-laundry_room = ("Laundry Room", "You are in the"
-                                "laundry room", "training_room", None, "garage", None, None, None, None, None, None,
-                None, None, None)
+laundry_room = Room("Laundry Room", "You are in the"
+                                    "laundry room"
+                                    ". You cqn go"
+                                    " north to "
+                                    "the training"
+                                    " room or "
+                                    "back easy to"
+                                    " the garage.", "training_room", None, "garage", None, None, None, None, None, None,
+                    None, None, None, None, 1, )
 
 
 def fight(modifier):
@@ -381,6 +387,7 @@ while True:
               'infantry weapon, with a 30 damage, and a fire rate of 3')
     elif command == 'kill self':
         print("Suicide is not the answer. Seriously 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
+              "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
