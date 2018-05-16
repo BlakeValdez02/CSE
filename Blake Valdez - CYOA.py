@@ -240,39 +240,71 @@ living_room = Room("Living Room", "You are in the living "
                    m1911, 0, "There is an M1911 Pistol here. Type 'stats M1911' to show stats of the M1911. ")
 
 kitchen = Room("Kitchen", "You are in "
-                          "the kitchen", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
+                          "the kitchen. "
+                          "You can "
+                          "either go "
+                          "east to the "
+                          "dining room, "
+                          "or northwest "
+                          "to the lobby.", None, None, "dining_room", None, None, None, None, "lobby", None, None, None,
                None, helmet, 1, "There is a helmet here. ")
 
 dining_room = Room("Dining Room", "You are in "
                                   "the dining "
-                                  "room", None, None, None, "kitchen", None, None, None, None, None, None, None,
+                                  "room. You "
+                                  "can only go "
+                                  "west to the "
+                                  "kitchen.", None, None, None, "kitchen", None, None, None, None, None, None, None,
                    None, med_kit, 0, "There is a Med Kit here. ")
 
-lobby_stairs = Room("Lobby Stairs", "You are upstairs", None, "upper_hallway", None, None, None, None, None, None, None,
+lobby_stairs = Room("Lobby Stairs", "You are upstairs"
+                                    ". You can either"
+                                    " go south to the"
+                                    "hallway, or down"
+                                    " to the lobby.", None, "upper_hallway", None, None, None, None, None, None, None,
                     "Lobby", None, None, None, 2)
 
 upper_hallway = Room("Upstairs Hallway", "You are in the upper "
-                                         "hallway", "workshop", "kids_bedroom", "bathroom", None, None,
+                                         "hallway. You can either "
+                                         "go north to the workshop"
+                                         ", south to the kids "
+                                         "bedroom east to the "
+                                         "bathroom, or southeast "
+                                         "to the master bedroom.", "workshop", "kids_bedroom", "bathroom", None, None,
                      "master_bedroom", None, None, None, None, None, None, pump_shotgun, 0, "There is a pump shotgun "
                                                                                             "here. Type 'stats pump "
                                                                                             "shotgun' to show the stats"
                                                                                             " of the pump shotgun.")
 
 workshop = Room("Workshop", "You are in "
-                            "the workshop", None, "upper_hallway", None, None, None, None, None, None, None, None, None,
+                            "the workshop"
+                            ". You can "
+                            "only go "
+                            "south to the"
+                            " hallway.", None, "upper_hallway", None, None, None, None, None, None, None, None, None,
                 None, None, 2)
 
 kids_bedroom = Room("Kids Bedroom", "You are in the "
-                                    "kids bedroom", "upper_hallway", None, None, None, None, None, None, None, None,
+                                    "kids bedroom. "
+                                    "You can only go "
+                                    "north to the "
+                                    "hallway.", "upper_hallway", None, None, None, None, None, None, None, None,
                     None, None, None, full_body_armour, 0, "There is Full Body Armour here. ")
 
 bathroom = Room("Bathroom", "You are in "
-                            "the bathroom", None, "master_bedroom", None, "upperhallway", None, None, None, None, None,
+                            "the bathroom."
+                            " You can "
+                            "either go "
+                            "south to the "
+                            "master "
+                            "bedroom, or "
+                            "west to the "
+                            "hallway.", None, "master_bedroom", None, "upperhallway", None, None, None, None, None,
                 None, None, None, None, 3)
 
 master_bedroom = Room("Master Bedroom", "You are in "
                                         "the master "
-                                        "bedroom", "bathroom", None, None, None, None, None, None, "upper_hallway",
+                                        "bedroom. ", "bathroom", None, None, None, None, None, None, "upper_hallway",
                       None, None, None, None, DP28, 0, "There is a DP-28 Light Machine Gun here. Type 'stats DP28' to "
                                                        "show the stats of the DP28 Light Machine Gun.")
 
