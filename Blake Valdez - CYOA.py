@@ -130,6 +130,7 @@ class Character(object):
         self.location = location
         self.inventory = []
         self.shield = 0
+        self.can_pick_up = False
 
     def attack(self, target):
         target.take_damage(self.attack_amt)
@@ -151,6 +152,16 @@ class Character(object):
         elif isinstance(item, Armor):
             self.shield = item.defence
             print("You have equipped the %s" % item.name)
+
+    def take(self, item):
+        if isinstance(item, Backpack):
+            self.can_pick_up = True
+        if self.can_pick_up:
+            self.inventory.append(item)
+            return True
+        else:
+            print("You have nowhere to put it.")
+            return False
 
     def use(self, item):
         if isinstance(item, Consumable):
@@ -304,26 +315,41 @@ bathroom = Room("Bathroom", "You are in "
 
 master_bedroom = Room("Master Bedroom", "You are in "
                                         "the master "
-                                        "bedroom. ", "bathroom", None, None, None, None, None, None, "upper_hallway",
+                                        "bedroom. You"
+                                        " can either "
+                                        "go north, or"
+                                        " northwest "
+                                        "to the "
+                                        "hallway.", "bathroom", None, None, None, None, None, None, "upper_hallway",
                       None, None, None, None, DP28, 0, "There is a DP-28 Light Machine Gun here. Type 'stats DP28' to "
                                                        "show the stats of the DP28 Light Machine Gun.")
 
 outside_garage_doors = Room("Garage Doors (outside)", "You are outside "
                                                       "in front of an "
-                                                      "open garage", None, None, None, "outside_construction_site",
+                                                      "open garage. "
+                                                      "You can either "
+                                                      "go west to the "
+                                                      "construction "
+                                                      "site, or inside "
+                                                      "to the garage.", None, None, None, "outside_construction_site",
                             None, None, None, None, None, None, "garage", None, M4, 0, "There is an M4 Assault Rifle "
                                                                                        "here. Type 'stats M4' to "
                                                                                        "show stats of the M4 Assault "
                                                                                        "Rifle. ")
 
 garage = Room("Garage", "You are in the "
-                        "garage", None, None, None, "laundry_room", None, None, None, None, None, None, None,
+                        "garage. You can "
+                        "either go west to"
+                        " the laundry room"
+                        ", or outside to "
+                        "the Garage Doors "
+                        "(outside).", None, None, None, "laundry_room", None, None, None, None, None, None, None,
               "outside_garage_doors", G36, 0, "There is a G36 Assault Rifle here. Type 'stats G36' to show the stats "
                                               "of the G36 Assault Rifle.")
 
 laundry_room = Room("Laundry Room", "You are in the"
                                     "laundry room"
-                                    ". You cqn go"
+                                    ". You can go"
                                     " north to "
                                     "the training"
                                     " room or "
@@ -389,34 +415,46 @@ while True:
             current_node.move(command)
         except KeyError:
             print("You cannot go this way")
+
     elif command == 'stats M1911':
+        print()
         print('The M1911 is a single-action, semi-automatic, magazine-fed, '
               'recoil-operated pistol chambered for the .45 ACP cartridge. It '
               'served as the standard-issue sidearm for the United States Armed '
               'Forces from 1911 to 1986, with a damage of 20, and a fire '
               'rate of 1.')
+        print()
 
     elif command == 'stats DP28':
+        print()
         print('The Degtyaryov machine gun or DP-28 is a light machine gun firing '
               'the 7.62×54mmR cartridge that was primarily used by the Soviet '
               'Union starting in 1928, with a damage of 50 and a fire rate '
               'of 2',)
+        print()
 
     elif command == 'stats pumpshotgun':
+        print()
         print('Mossberg 500 .410 Bore Special Purpose Cruiser Pump Action '
               'Shotgun 18-1/2" Barrel 6 Rounds Synthetic Stock, with a '
               'damage of 50 and a fire rate of 1.')
+        print()
 
     elif command == 'stats G36':
+        print()
         print('Classic assault rifle, designed in the early 1990s by Heckler & Koch'
               ' in Germany as a replacement for the heavier 7.62mm G3 '
               'battle rifle, with 20 damage, and a fire rate of 4.')
+        print()
 
     elif command == 'stats M4':
+        print()
         print('The M4 carbine is extensively used by the United States Armed Forces '
               'and is largely replacing the M16 rifle in United States Army and '
               'United States Marine Corps combat units as the primary '
               'infantry weapon, with a 30 damage, and a fire rate of 3')
+        print()
+
     elif command == 'kill self':
         print("Suicide is not the answer. Seriously 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
@@ -463,13 +501,15 @@ while True:
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 "
               "1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 1-800-273-8255 ")
 
-    elif current_node.item is not None and 'take' in command:
-        player.inventory.append(current_node.item)
-        current_node.item = None
-        print("Taken.")
-        current_node.item_description = ""
-    elif 'Take' in command:
-        print("%d" % current_node)
+    elif 'take' in command:
+        if current_node.item is not None and player.take(current_node.item):
+            current_node.item = None
+            print("Taken.")
+            current_node.item_description = ""
+            print()
+        else:
+            print()
+            pass
     elif 'equip ' in command:
         item_requested = command[6:]
         found = False
@@ -480,11 +520,16 @@ while True:
         if not found:
             print("You don't have that")
     elif 'use ' in command:
-        item_requested = command[4]
+        item_requested = command[4:]
         found = False
         for item in player.inventory:
             if item.name.lower() == item_requested.lower():
                 found = True
                 player.use(item)
+    elif command in ['i', 'inventory']:
+        print("You have the following items:")
+        for item in player.inventory:
+            print(item.name)
+        print()
     else:
         print("Command not recognized")
