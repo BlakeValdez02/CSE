@@ -218,6 +218,7 @@ outside_construction_site = Room("Outside Construction Site", "You are outside a
                                  "down to the basement outside stairs.", None, "main_entrance", "outside_garage_doors",
                                  None, None, None, None, None, None, "basement_outside_stairs", None, None, backpack, 0,
                                  "There is a backpack here. ")
+basement_outside_stairs = Room("")
 
 main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "the front "
