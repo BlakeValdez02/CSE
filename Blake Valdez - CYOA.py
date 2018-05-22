@@ -218,7 +218,17 @@ outside_construction_site = Room("Outside Construction Site", "You are outside a
                                  "down to the basement outside stairs.", None, "main_entrance", "outside_garage_doors",
                                  None, None, None, None, None, None, "basement_outside_stairs", None, None, backpack, 0,
                                  "There is a backpack here. ")
-basement_outside_stairs = Room("")
+
+basement_outside_stairs = Room("Basement Stairs", "You are outside the basement. go Up to go to the Outside "
+                                                  "Construction site, or west to the depot.", None, None, None, "depot",
+                               None, None, None, None, "outside_construction_site", None, None, None, None, 2)
+
+depot = Room("Depot", "You are in the depot. You can go east to the basement, or south to the training room.", None,
+             "training_room", "basement_outside_stairs", None, None, None, None, None, None, None, None, None, None)
+
+training_room = Room("Training Room", "You are in the Training Room, You can either go south to the Laundry Room, or "
+                                      "north to the depot.", "depot", "laundry_room", None, None, None, None, None,
+                     None, None, None, None, None, None, 1)
 
 main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "the front "
@@ -231,7 +241,7 @@ main_entrance = Room("Front Porch House Main Entrance", "You are at "
                                                         "constructio"
                                                         "n site or "
                                                         "south to "
-                                                        "the lobby.", 'outside_construction_site', 'lobby', None, None,
+                                                        "the lobby.", 'outside_construction_site', "lobby", None, None,
                      None, None, None, None, None, None, None, None, energy_drink, 0, "There is an energy drink here. ")
 
 lobby = Room("Main Lobby", "You are in the "
@@ -345,16 +355,16 @@ garage = Room("Garage", "You are in the "
                         ", or outside to "
                         "the Garage Doors "
                         "(outside).", None, None, None, "laundry_room", None, None, None, None, None, None, None,
-              "outside_garage_doors", G36, 0, "There is a G36 Assault Rifle here. Type 'stats G36' to show the stats "
+              "outside_garage_doors", g36, 0, "There is a G36 Assault Rifle here. Type 'stats G36' to show the stats "
                                               "of the G36 Assault Rifle.")
 
 laundry_room = Room("Laundry Room", "You are in the"
-                                    "laundry room"
+                                    " laundry room"
                                     ". You can go"
                                     " north to "
                                     "the training"
                                     " room or "
-                                    "back easy to"
+                                    "back east to"
                                     " the garage.", "training_room", None, "garage", None, None, None, None, None, None,
                     None, None, None, None, 1, )
 
@@ -376,6 +386,9 @@ def fight(modifier):
             if cmd == 1:
                 player.attack(current_enemy)
                 print("The enemy has %d health left" % current_enemy.hp)
+            elif cmd == 3:
+                
+
         except ValueError:
             print("That is not a number")
             continue
