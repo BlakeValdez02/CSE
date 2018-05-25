@@ -170,6 +170,57 @@ class Character(object):
                 self.hp = 100
             print("You use the %s" % item.name)
 
+    def drink_energy_drink(self):
+        item_to_remove = None
+        for item in self.inventory:
+            if isinstance(item, EnergyDrink):
+                self.hp += 50
+                print("You drink the energy drink")
+                item_to_remove = item
+                break
+        if item_to_remove is not None:
+            self.inventory.remove(item_to_remove)
+        else:
+            print("You don't have an energy drink.")
+
+    def eat_apple(self):
+        item_to_remove = None
+        for item in self.inventory:
+            if isinstance(item, Apple):
+                self.hp += 25
+                print("You eat the apple")
+                item_to_remove = item
+                break
+        if item_to_remove is not None:
+            self.inventory.remove(item_to_remove)
+        else:
+            print("You don't have an apple.")
+
+    def use_med_kit(self):
+        item_to_remove = None
+        for item in self.inventory:
+            if isinstance(item, MedKit):
+                self.hp += 100
+                print("You use the MedKit.")
+                item_to_remove = item
+                break
+        if item_to_remove is not None:
+            self.inventory.remove(item_to_remove)
+        else:
+            print("You don't have an medkit.")
+
+    def use_helmet(self):
+        item_to_remove = None
+        for item in self.inventory:
+            if isinstance(item, Helmet):
+                self.hp += 25
+                print("You use the helmet. You now have 25 extra HP.")
+                break
+        if item_to_remove is not None:
+            self.inventory.remove(item_to_remove)
+        else:
+            print("You don't have an medkit.")
+
 
 player = Character("You", 100, 25, False, None, None, None, None)
 enemy = Character("Enemy", 100, 10, False, None, None, None, None)
@@ -281,7 +332,7 @@ dining_room = Room("Dining Room", "You are in "
 
 lobby_stairs = Room("Lobby Stairs", "You are upstairs"
                                     ". You can either"
-                                    " go south to the"
+                                    " go south to the "
                                     "hallway, or down"
                                     " to the lobby.", None, "upper_hallway", None, None, None, None, None, None, None,
                     "Lobby", None, None, None, 2)
@@ -376,7 +427,7 @@ def fight(modifier):
     print()
     print("A Wild Enemy appears!!!")
     while current_enemy.hp > 0 and player.hp > 0:
-        options = ["Attack", "Nothing", "Drink energy Drink", "Eat Apple"]
+        options = ["Attack", "Nothing", "Drink energy Drink", "Eat Apple", "Use MedKit"]
         for num, action in enumerate(options):
             print(str(num + 1) + ": " + action)
         try:
@@ -386,8 +437,18 @@ def fight(modifier):
             if cmd == 1:
                 player.attack(current_enemy)
                 print("The enemy has %d health left" % current_enemy.hp)
-            elif cmd == 3:
                 
+            elif cmd == 3:
+                player.drink_energy_drink()
+                print("You have %d health" % player.hp)
+
+            elif cmd == 4:
+                player.eat_apple()
+                print("You have %d health" % player.hp)
+
+            elif cmd == 5:
+                player.use_med_kit()
+                print("You have %d health ")
 
         except ValueError:
             print("That is not a number")
@@ -547,3 +608,4 @@ while True:
         print()
     else:
         print("Command not recognized")
+
